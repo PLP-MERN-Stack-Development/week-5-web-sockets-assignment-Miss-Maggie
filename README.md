@@ -60,6 +60,7 @@ socketio-chat/
 - Basic understanding of React and Express
 
 ## Submission
+Maggie 
 
 Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
 
