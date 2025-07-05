@@ -117,8 +117,6 @@ io.on('connection', (socket) => {
     }
   });
 
-  // File sharing (already handled in chatMessage)
-
   // User reactions (persisted)
   socket.on('reaction', async ({ messageId, reaction }) => {
     const message = await Message.findByIdAndUpdate(

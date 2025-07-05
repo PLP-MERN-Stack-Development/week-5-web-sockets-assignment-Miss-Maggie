@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { AuthProvider } from './context/AuthContext'
 import { SocketProvider } from './context/SocketContext'
 import Login from './pages/Login'
@@ -38,6 +38,21 @@ function MainApp() {
 }
 
 function App() {
+  useEffect(() => {
+    // Request notification permission on load
+    if ('Notification' in window && Notification.permission === 'default') {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  useEffect(() => {
+    // Play sound for new messages
+    window.playChatSound = () => {
+      const audio = new Audio('/notification.mp3');
+      audio.play();
+    };
+  }, []);
+
   return (
     <AuthProvider>
       <SocketProvider>
